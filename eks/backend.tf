@@ -11,9 +11,7 @@ terraform {
     region         = "us-east-1"
     key            = "eks/terraform.tfstate"
     encrypt        = true
-    state_lock {
-      table_name = "Lock-Files"
-    }
+    use_lockfile   = true
   }
 }
 
