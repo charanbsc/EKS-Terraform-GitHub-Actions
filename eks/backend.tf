@@ -1,5 +1,5 @@
 terraform {
-  required_version = "~> 1.9.3"
+  required_version = "~> 1.12.1"
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -10,8 +10,10 @@ terraform {
     bucket         = "charan-tf-bucket"
     region         = "us-east-1"
     key            = "eks/terraform.tfstate"
-    dynamodb_table = "Lock-Files"
     encrypt        = true
+    state_lock {
+      table_name = "Lock-Files"
+    }
   }
 }
 
